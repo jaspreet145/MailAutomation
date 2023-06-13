@@ -74,15 +74,14 @@ func main() {
 
 	records := readCsvFile("./contacts.csv")
 
-	file, err := os.Open("./body.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
 	for _, record := range records[1:] {
-		scanner := bufio.NewScanner(file)
 
+		file, err := os.Open("./body.txt")
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+		scanner := bufio.NewScanner(file)
 		emailBody := ""
 		for scanner.Scan() {
 			body := scanner.Text()
