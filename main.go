@@ -90,7 +90,6 @@ func main() {
 			body = strings.Replace(body, "{@company}", record[0], 1)
 			emailBody = emailBody + "\n" + body
 		}
-		println(emailBody)
 		sendMail(record[2], emailBody)
 	}
 
